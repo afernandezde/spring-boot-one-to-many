@@ -6,60 +6,71 @@ import jakarta.persistence.*;
 @Table(name = "tutorials")
 public class Tutorial {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tutorial_generator")
-  private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tutorial_generator")
+    private long id;
 
-  @Column(name = "title")
-  private String title;
+    @Column(name = "title")
+    private String title;
 
-  @Column(name = "description")
-  private String description;
+    @Column(name = "description")
+    private String description;
 
-  @Column(name = "published")
-  private boolean published;
+    @Column(name = "published")
+    private boolean published;
 
-  public Tutorial() {
+    @Column(name = "author")
+    private String author;
 
-  }
+    public Tutorial() {
 
-  public Tutorial(String title, String description, boolean published) {
-    this.title = title;
-    this.description = description;
-    this.published = published;
-  }
+    }
 
-  public long getId() {
-    return id;
-  }
+    public Tutorial(String title, String description, boolean published, String author) {
+        this.title = title;
+        this.description = description;
+        this.published = published;
+        this.author = author;
+    }
 
-  public String getTitle() {
-    return title;
-  }
+    public long getId() {
+        return id;
+    }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
+    public String getTitle() {
+        return title;
+    }
 
-  public String getDescription() {
-    return description;
-  }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public String getDescription() {
+        return description;
+    }
 
-  public boolean isPublished() {
-    return published;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-  public void setPublished(boolean isPublished) {
-    this.published = isPublished;
-  }
+    public boolean isPublished() {
+        return published;
+    }
 
-  @Override
-  public String toString() {
-    return "Tutorial [id=" + id + ", title=" + title + ", desc=" + description + ", published=" + published + "]";
-  }
+    public void setPublished(boolean isPublished) {
+        this.published = isPublished;
+    }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", published=" + published + ", author=" + author + "]";
+    }
 }
