@@ -19,14 +19,18 @@ public class Tutorial {
     @Column(name = "published")
     private boolean published;
 
+    @Column(name = "author")
+    private String author; // Nuevo campo para el autor
+
     public Tutorial() {
 
     }
 
-    public Tutorial(String title, String description, boolean published) {
+    public Tutorial(String title, String description, boolean published, String author) {
         this.title = title;
         this.description = description;
         this.published = published;
+        this.author = author; // Nuevo constructor con el autor
     }
 
     public long getId() {
@@ -57,8 +61,16 @@ public class Tutorial {
         this.published = isPublished;
     }
 
+    public String getAuthor() { // Nuevo getter para el autor
+        return author;
+    }
+
+    public void setAuthor(String author) { // Nuevo setter para el autor
+        this.author = author;
+    }
+
     @Override
     public String toString() {
-        return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", published=" + published + "]";
+        return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", published=" + published + ", author=" + author + "]";
     }
 }
