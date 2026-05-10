@@ -1,10 +1,9 @@
 package com.bezkoder.spring.hibernate.onetomany.model;
 
 import jakarta.persistence.*;
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
+import jakarta.validation.constraints.NotNull; // Import necesario para la anotación @NotNull
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -15,6 +14,7 @@ public class Comment {
   private Long id;
 
   @Lob
+  @NotNull // Agregado para evitar que el contenido sea nulo en la base de datos
   private String content;
 
 //  @ManyToOne(fetch = FetchType.EAGER, optional = false)
@@ -43,5 +43,4 @@ public class Comment {
   public void setTutorial(Tutorial tutorial) {
     this.tutorial = tutorial;
   }
-
 }
