@@ -1,6 +1,7 @@
 package com.bezkoder.spring.hibernate.onetomany.model;
 
 import jakarta.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "tutorials")
@@ -19,14 +20,19 @@ public class Tutorial {
     @Column(name = "published")
     private boolean published;
 
+    // Nuevo campo para el autor
+    @Column(name = "author")
+    private String author;
+
     public Tutorial() {
 
     }
 
-    public Tutorial(String title, String description, boolean published) {
+    public Tutorial(String title, String description, boolean published, String author) {
         this.title = title;
         this.description = description;
         this.published = published;
+        this.author = author; // Agregado el parámetro de autor
     }
 
     public long getId() {
@@ -57,8 +63,17 @@ public class Tutorial {
         this.published = isPublished;
     }
 
+    // Nuevo método para obtener el autor
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     @Override
     public String toString() {
-        return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", published=" + published + "]";
+        return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", published=" + published + ", author=" + author + "]";
     }
 }
