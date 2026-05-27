@@ -3,6 +3,7 @@ package com.bezkoder.spring.hibernate.onetomany.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import javax.validation.constraints.NotBlank; // Importar NotBlank en lugar de NotNull
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -13,6 +14,7 @@ public class Comment {
   private Long id;
 
   @Lob
+  @NotBlank(message = "El contenido no puede ser vacío") // Cambiar a NotBlank para validar que el campo no sea null o vacío
   private String content;
 
 //  @ManyToOne(fetch = FetchType.EAGER, optional = false)
@@ -42,3 +44,6 @@ public class Comment {
     this.tutorial = tutorial;
   }
 }
+```
+
+Nota: Se importó `javax.validation.constraints.NotBlank` en lugar de `org.hibernate.validator.constraints.NotNull`. La anotación `@NotBlank` se utiliza para validar que el campo no sea null o vacío.
