@@ -3,7 +3,6 @@ package com.bezkoder.spring.hibernate.onetomany.model;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import javax.validation.constraints.NotBlank; // Importar la anotación @NotBlank
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -14,7 +13,6 @@ public class Comment {
   private Long id;
 
   @Lob
-  @Column(nullable = false) // Agregar la anotación @Column con nullable=false para evitar que el contenido sea nulo a nivel de base de datos.
   private String content;
 
 //  @ManyToOne(fetch = FetchType.EAGER, optional = false)
