@@ -16,6 +16,9 @@ public class Tutorial {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "author")
+    private String author; // Agregado el campo autor
+
     @Column(name = "published")
     private boolean published;
 
@@ -23,9 +26,10 @@ public class Tutorial {
 
     }
 
-    public Tutorial(String title, String description, boolean published) {
+    public Tutorial(String title, String description, String author, boolean published) {
         this.title = title;
         this.description = description;
+        this.author = author; // Se pasa el parámetro author al constructor
         this.published = published;
     }
 
@@ -49,6 +53,14 @@ public class Tutorial {
         this.description = description;
     }
 
+    public String getAuthor() { // Agregado el método getter para autor
+        return author;
+    }
+
+    public void setAuthor(String author) { // Agregado el método setter para autor
+        this.author = author;
+    }
+
     public boolean isPublished() {
         return published;
     }
@@ -59,6 +71,6 @@ public class Tutorial {
 
     @Override
     public String toString() {
-        return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", published=" + published + "]";
+        return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", author=" + author + ", published=" + published + "]";
     }
 }
