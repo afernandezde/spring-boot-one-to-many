@@ -13,6 +13,7 @@ public class Comment {
   private Long id;
 
   @Lob
+  @Column(nullable = false) // Agregamos la restricción de no nulidad aquí
   private String content;
 
 //  @ManyToOne(fetch = FetchType.EAGER, optional = false)
