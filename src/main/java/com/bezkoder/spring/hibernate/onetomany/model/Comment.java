@@ -13,6 +13,7 @@ public class Comment {
   private Long id;
 
   @Lob
+  @Column(nullable = false) // Cambiado para evitar que el contenido sea nulo a nivel de base de datos
   private String content;
 
 //  @ManyToOne(fetch = FetchType.EAGER, optional = false)
